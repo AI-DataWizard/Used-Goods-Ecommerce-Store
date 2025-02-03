@@ -1,0 +1,942 @@
+$pri: #ff0033;
+$sec: #00e5ff;
+$black: #333;
+$white: #fffafa;
+$gray: #dcdcdc;
+
+@mixin button {
+  outline: none;
+  border: none;
+  height: 4rem;
+  width: 16rem;
+  border-radius: 5rem;
+  background: $pri;
+  color: $white;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  &:hover {
+    background: $sec;
+    letter-spacing: 0.05rem;
+  }
+}
+
+@mixin heading() {
+  color: $pri;
+  font-size: 3rem;
+  margin: 2rem 0;
+  padding-top: 5rem;
+  text-align: center;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 60%;
+    height: 0.3rem;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: $black;
+  }
+}
+
+/*Common Elements*/
+
+@font-face {
+  font-family: font;
+  src: url(/fonts/Merriweather_Sans/MerriweatherSans-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: hfont;
+  src: url("/fonts/Lilita_One/LilitaOne-Regular.ttf");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  transition: all 0.3s linear;
+  font-family: font;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  list-style-type: none;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/*/Common Elements*/
+/*Header Section*/
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 1.5rem;
+  color: $black;
+
+  .fa-bars {
+    font-size: 3rem;
+    z-index: 10000;
+    cursor: pointer;
+  }
+
+  .logo {
+    color: $black;
+    font-size: 4rem;
+    text-decoration: none;
+
+    #icon {
+      padding-right: 0.5rem;
+    }
+
+    h1 {
+      display: inline;
+      font-family: hfont;
+      font-weight: bolder;
+      background: $black;
+      color: $white;
+      border-radius: 0.5rem;
+      padding-left: 0.5rem;
+      font-size: 4rem;
+      span {
+        background: $pri;
+        color: $white;
+        font-family: hfont;
+        padding: 0 0.5rem;
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+      }
+    }
+  }
+
+  .left {
+    #icon {
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .search-con {
+      display: inline;
+      position: relative;
+
+      #search {
+        position: absolute;
+        top: -1.5rem;
+        right: 0.8rem;
+        height: 3.5rem;
+        width: 3.5rem;
+        padding: 0 1rem;
+        border-radius: 5rem;
+        background: $black;
+        color: $white;
+
+        &:hover,
+        &:focus {
+          width: 25rem;
+        }
+
+        &::placeholder {
+          color: $black;
+        }
+
+        &:hover,
+        &:focus {
+          &::placeholder {
+            color: $white;
+          }
+        }
+      }
+
+      #icon {
+        position: absolute;
+        color: $white;
+        font-size: 2rem;
+        cursor: pointer;
+        z-index: 1;
+        top: -0.75rem;
+        left: -3.5rem;
+
+        &:hover ~ #search {
+          width: 25rem;
+        }
+
+        &:hover ~ #search::placeholder {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    display: none;
+    background: repeating-radial-gradient(
+      circle at 20% 20%,
+      #ff0033,
+      #fffafa 10%
+    );
+
+    ul {
+      height: 100%;
+      width: 35rem;
+      background: $white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-flow: column;
+
+      li {
+        margin: 1rem 0;
+
+        a {
+          display: block;
+          height: 4rem;
+          line-height: 4rem;
+          width: 25rem;
+          border-radius: 5rem;
+          background: $black;
+          color: $white;
+          font-size: 1.2rem;
+          font-weight: bold;
+          text-align: center;
+
+          &:hover {
+            text-decoration: none;
+            background: $pri;
+            letter-spacing: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*/Header Section*/
+/*Home Section*/
+#home {
+  background-color: $white;
+
+  .slide {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .image {
+      img {
+        width: 40vw;
+      }
+    }
+
+    .content {
+      h1 {
+        font-size: 4rem;
+        color: $black;
+      }
+
+      p {
+        font-size: 1.7rem;
+        color: $gray;
+      }
+
+      .stars {
+        margin: 1.5rem 0;
+
+        #icon {
+          font-size: 1.5rem;
+          color: $sec;
+          padding-left: 0.4rem;
+        }
+      }
+      .price {
+        color: $pri;
+        font-size: 3.5rem;
+        margin: 1rem 0;
+      }
+
+      button {
+        @include button();
+      }
+    }
+  }
+  .owl-nav {
+    .owl-next,
+    .owl-prev {
+      position: absolute;
+      top: 45%;
+      transform: translateY(-50%);
+      color: $pri;
+      font-size: 6rem;
+      background: none;
+      border: none;
+      outline: none;
+    }
+
+    .owl-next {
+      right: 1rem;
+    }
+
+    .owl-prev {
+      left: 1rem;
+    }
+  }
+  .owl-dots {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .owl-dot {
+      border: none;
+      outline: none;
+    }
+  }
+}
+/*/Home Section*/
+
+/*Products Section*/
+#products {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  width: 100vw;
+
+  .heading {
+    @include heading();
+  }
+
+  .product-con {
+    width: 90%;
+
+    .owl-nav {
+      .owl-next,
+      .owl-prev {
+        position: absolute;
+        top: 45%;
+        transform: translateY(-50%);
+        color: $pri;
+        font-size: 6rem;
+        background: none;
+        border: none;
+        outline: none;
+      }
+
+      .owl-next {
+        right: -2rem;
+      }
+
+      .owl-prev {
+        left: -2rem;
+      }
+    }
+
+    .title {
+      color: $black;
+      font-size: 3rem;
+      margin-top: 5rem;
+      margin-left: 6rem;
+    }
+
+    .product-slider {
+      .product-card {
+        height: 40rem;
+        width: 30rem;
+        margin: 2rem auto;
+        box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.5);
+        border-radius: 0.5rem;
+        position: relative;
+
+        .image {
+          height: 60%;
+          width: 100%;
+          img {
+            height: 80%;
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .content {
+          height: 40%;
+          width: 100%;
+          text-align: center;
+
+          h3 {
+            font-size: 3rem;
+            color: $pri;
+          }
+
+          .stars {
+            #icon {
+              color: $sec;
+            }
+          }
+
+          .price {
+            font-size: 2.5rem;
+            color: $black;
+          }
+        }
+
+        .info {
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 100%;
+          background: $black;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-flow: column;
+          transition-delay: 0.2s;
+          transform: scale(0);
+
+          h4 {
+            font-size: 4rem;
+            color: $white;
+          }
+
+          p {
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            color: $gray;
+            text-align: center;
+          }
+          button {
+            @include button();
+            margin-top: 1rem;
+
+            &:hover {
+              background: $sec;
+            }
+          }
+
+          .share {
+            margin-top: 4.5rem;
+            a {
+              text-align: center;
+              background: $white;
+              color: $pri;
+              margin: 0 0.75rem;
+              border-radius: 50%;
+              #icon {
+                font-size: 2rem;
+                height: 4rem;
+                width: 4rem;
+              }
+              &:hover {
+                background: $pri;
+                color: $white;
+              }
+            }
+          }
+        }
+
+        &:hover .info {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+/*/Products Section*/
+
+/*Reviews Section*/
+#reviews {
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  background: url("/assets/refinds-reviewbg.jpg"),
+    linear-gradient($pri, $pri) no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-blend-mode: screen;
+  background-position: center;
+  position: relative;
+
+  /*.shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url("/assets/shape.png") no-repeat;
+    background-size: cover;
+    background-position: center;
+  }*/
+
+  .heading {
+    @include heading();
+    padding-top: 7rem;
+    color: $white;
+
+    &::after {
+      background: $pri;
+    }
+  }
+
+  .box-con {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .owl-nav {
+      .owl-next,
+      .owl-prev {
+        position: absolute;
+        top: 0%;
+        transform: translateY(-50%);
+        color: $white;
+        font-size: 6rem;
+        background: none;
+        border: none;
+        outline: none;
+      }
+
+      .owl-next {
+        right: 5rem;
+      }
+
+      .owl-prev {
+        left: 5rem;
+      }
+    }
+
+    .review-slider {
+      .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .image {
+          margin-top: 10rem;
+          margin-left: 3rem;
+
+          img {
+            height: 10rem;
+            width: 10rem;
+            object-fit: cover;
+            border-radius: 50% 50% 50% 0%;
+            border: 0.5rem solid $white;
+          }
+        }
+
+        .comment {
+          height: 20rem;
+          width: 45rem;
+          background: $white;
+          border-radius: 2% 2% 0% 40%;
+          padding-top: 2rem;
+
+          p {
+            color: $black;
+            font-size: 1.6rem;
+            padding: 2rem;
+
+            #icon {
+              color: $pri;
+              font-size: 2rem;
+              padding: 0rem 0.5rem;
+            }
+          }
+
+          h3 {
+            text-align: end;
+            color: $pri;
+            margin: 0.5rem 2rem;
+          }
+        }
+      }
+    }
+  }
+}
+/*/Reviews Section*/
+
+/*Offers Section*/
+.offers {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-flow: column;
+
+  .heading {
+    @include heading();
+  }
+
+  .images {
+    min-height: 20vh;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .box {
+      height: 25rem;
+      width: 33rem;
+      text-align: center;
+      margin: 2rem;
+
+      img {
+        height: 20rem;
+        width: 33rem;
+        object-fit: cover;
+      }
+
+      h3 {
+        font-size: 2.5rem;
+        color: $pri;
+        margin: 1rem 0;
+      }
+    }
+  }
+
+  .deal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: url("/assets/refinds-dotdback.jpg"),
+      linear-gradient($pri, #fff) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-blend-mode: screen;
+    background-position: center;
+    padding: 5rem 0;
+    width: 100%;
+
+    .image {
+      img {
+        height: 60vh;
+      }
+    }
+    .content {
+      text-shadow: 0.1rem 0.1rem 0.3rem #333;
+      h4 {
+        font-size: 4rem;
+        color: $pri;
+      }
+      p {
+        font-size: 2rem;
+        color: $white;
+        padding: 1rem 0;
+      }
+      .stars {
+        #icon {
+          color: gold;
+          font-size: 1.5rem;
+        }
+      }
+      .price {
+        font-size: 2.5rem;
+        color: $pri;
+        font-weight: bold;
+        span {
+          font-size: 2rem;
+          color: $gray;
+          text-decoration: line-through;
+          padding-left: 0.5rem;
+        }
+      }
+      a {
+        button {
+          @include button();
+          margin: 1rem 0;
+        }
+      }
+    }
+  }
+}
+/*/Offers Section*/
+
+/*Brands Section*/
+#brands {
+  display: block;
+  .brand-slider {
+    img {
+      height: 15rem;
+      width: 30rem;
+    }
+    .owl-dots {
+      display: none;
+    }
+  }
+}
+/*/Brands Section*/
+
+/*Newsletter Section*/
+#newsletter {
+  width: 100vw;
+  background: url("/assets/refinds-newsletterbg.jpg") no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-blend-mode: screen;
+  background-position: center;
+  padding: 6rem 0;
+  text-align: center;
+
+  h1 {
+    font-size: 6rem;
+    color: #fff;
+    font-weight: bolder;
+  }
+
+  p {
+    font-size: 3rem;
+    color: $white;
+  }
+  input[type="email"] {
+    outline: none;
+    border: none;
+    background: $black;
+    color: #fff;
+    height: 4rem;
+    width: 34rem;
+    border-radius: 5rem;
+    font-size: 1.5rem;
+    padding: 1.5rem;
+    text-transform: none;
+
+    &::placeholder {
+      color: $gray;
+    }
+  }
+  input[type="submit"] {
+    display: block;
+    @include button();
+    margin: 2rem auto;
+    background: $pri;
+
+    &:hover {
+      background: $black;
+    }
+  }
+}
+/*/Newsletter Section*/
+
+/*Footer Section*/
+#footer {
+  background: $black;
+  padding: 2rem;
+  width: 100vw;
+
+  .row {
+    margin: 0;
+    width: 100%;
+
+    .brand-info {
+      margin: 1rem;
+      padding: 0;
+
+      a {
+        color: #fff;
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        #icon {
+          font-size: 2rem;
+          padding: 0 0.5rem;
+        }
+        h1 {
+          display: inline;
+          font-family: hfont;
+          font-weight: bolder;
+          background: $black;
+          color: $white;
+          border-radius: 0.5rem;
+          padding-left: 0.5rem;
+          font-size: 2rem;
+          border: 0.1rem solid $white;
+          span {
+            background: $pri;
+            color: $white;
+            font-family: hfont;
+            padding: 0 0.5rem;
+            border-top-right-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+          }
+        }
+      }
+
+      p {
+        font-size: 1.5rem;
+        padding: 2rem;
+        margin: 0;
+        color: $gray;
+      }
+    }
+
+    .links {
+      padding: 0;
+      margin: 1rem;
+
+      h3 {
+        color: $white;
+        font-size: 2rem;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-flow: column;
+
+        a {
+          color: $gray;
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    .follow-us {
+      padding: 0;
+      margin: 1rem;
+
+      h3 {
+        color: $white;
+        font-size: 2rem;
+      }
+
+      .follow-links {
+        display: flex;
+        flex-flow: column;
+
+        a {
+          color: $gray;
+          font-size: 1.5rem;
+
+          #icon {
+            padding: 0 0.5rem;
+          }
+
+          &:hover {
+            #icon {
+              color: $pri;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .credit {
+    font-size: 2rem;
+    padding-top: 1.5rem;
+    width: 100%;
+    border-top: 0.1rem solid $gray;
+    color: $white;
+
+    a {
+      color: $pri;
+    }
+  }
+}
+/*/Footer Section*/
+
+/*Media Queries*/
+@media (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+
+  .owl-dots {
+    display: none;
+  }
+
+  #home {
+    padding-bottom: 4rem;
+
+    .slide {
+      flex-flow: column-reverse;
+
+      .content {
+        padding: 1rem;
+      }
+      .image {
+        img {
+          width: 100vw;
+        }
+      }
+    }
+  }
+
+  #products {
+    .title {
+      text-align: center;
+      margin-right: 6rem;
+    }
+  }
+
+  #reviews {
+    .heading {
+      padding-top: 10rem;
+    }
+    .box-con {
+      .review-slider {
+        .box {
+          position: relative;
+          height: 50vh;
+
+          .image {
+            position: absolute;
+            top: 0;
+            margin: 0;
+
+            img {
+              border-radius: 5rem;
+              border-color: $pri;
+            }
+          }
+
+          .comment {
+            border-radius: 1rem;
+            text-align: center;
+            width: 35rem;
+
+            h3 {
+              text-align: center;
+              margin-top: -2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #offers {
+    .deal {
+      .content {
+        text-align: center;
+      }
+    }
+  }
+}
+/*/Media Queries*/
