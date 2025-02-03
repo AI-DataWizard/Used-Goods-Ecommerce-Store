@@ -47,12 +47,12 @@ $gray: #dcdcdc;
 
 @font-face {
   font-family: font;
-  src: url(/fonts/Merriweather_Sans/MerriweatherSans-VariableFont_wght.ttf);
+  src: url(/Used-Goods-Ecommerce-Store/fonts/Merriweather_Sans/MerriweatherSans-VariableFont_wght.ttf);
 }
 
 @font-face {
   font-family: hfont;
-  src: url("/fonts/Lilita_One/LilitaOne-Regular.ttf");
+  src: url("/Used-Goods-Ecommerce-Store/fonts/Lilita_One/LilitaOne-Regular.ttf");
 }
 
 * {
@@ -470,7 +470,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-flow: column;
-  background: url("/assets/refinds-reviewbg.jpg"),
+  background: url("/Used-Goods-Ecommerce-Store/assets/refinds-reviewbg.jpg"),
     linear-gradient($pri, $pri) no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -484,7 +484,7 @@ body {
     left: 0;
     height: 100%;
     width: 100%;
-    background: url("/assets/shape.png") no-repeat;
+    background: url("/Used-Goods-Ecommerce-Store/assets/shape.png") no-repeat;
     background-size: cover;
     background-position: center;
   }*/
@@ -624,7 +624,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    background: url("/assets/refinds-dotdback.jpg"),
+    background: url("/Used-Goods-Ecommerce-Store/assets/refinds-dotdback.jpg"),
       linear-gradient($pri, #fff) no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -695,7 +695,7 @@ body {
 /*Newsletter Section*/
 #newsletter {
   width: 100vw;
-  background: url("/assets/refinds-newsletterbg.jpg") no-repeat;
+  background: url("/Used-Goods-Ecommerce-Store/assets/refinds-newsletterbg.jpg") no-repeat;
   background-size: cover;
   background-attachment: fixed;
   background-blend-mode: screen;
