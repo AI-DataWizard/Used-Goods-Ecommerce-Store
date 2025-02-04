@@ -37,6 +37,7 @@ body {
   align-items: center;
   padding: 2.5rem 1.5rem;
   color: #333;
+  width:100vw;
 }
 #header .fa-bars {
   font-size: 3rem;
